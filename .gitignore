@@ -23,3 +23,7 @@ package-lock.json
 
 # Generated slide outputs
 slides-output/
+
+# My research (interviews)
+portfolio/notes.md
+portfolio/studies/
