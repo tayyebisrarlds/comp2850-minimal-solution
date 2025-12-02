@@ -64,7 +64,7 @@
 
 **How Task 4 tests this**: The participant tests the filter functionality and uses it to successfully delete a task.
 
-## Story S5: Reliable Access On Low Battery
+## Week 6 Story S5: Reliable Access On Low Battery
 **Situation**: When I lose charge on my phone, therefore losing access to timed reminders
 **Motivation**: I want backup visibility (e.g. desktop alerts or synced reminders)
 **Outcome**: So I don't miss important tasks due to one device failing
@@ -73,7 +73,7 @@
 
 **Task was not assigned for this story**
 
-## Story S6: No JavaScript is No Problem
+## Week 6 Story S6: No JavaScript is No Problem
 **Situation**: When I cannot use JavaScript on my browser
 **Motivation**: I want to still be able to use my applications, like my todo list.
 **Outcome**: So I don't miss important deadlines just because of a software or hardware limitation
@@ -91,7 +91,7 @@
 - **Action**: Please use the keyboard only to navigate to the 'Add Task' textbox, enter a task, then save it.
 - **Success**: User has successfully created a new task
 - **Target time**: <10 seconds
-- **Linked to**: Week 6 Job Story 1
+- **Linked to**: Week 6 S1
 
 #### Task 2 (T2): Confirmation Visible
 
@@ -99,7 +99,7 @@
 - **Action**: Please navigate to 'delete task', and delete a task of your choice. Look for and acknowledge the notification.
 - **Success**: Notification of task successfully appears, and is acknowledged by the user.
 - **Target time**: <8 seconds
-- **Linked to**: Week 6 Job Story 2
+- **Linked to**: Week 6 S2
 
 #### Task 3 (T3): Updating Task Details
 
@@ -107,15 +107,15 @@
 - **Action**: Please edit a task from the list, giving it the name '[Name of the task] Part 2', and then save it.
 - **Success**: The task is saved in the list with the correct name, and there is an alert confirmation at the top.
 - **Target time**: <10 seconds
-- **Linked to**: Week 6 Job Story 3
+- **Linked to**: Week 6 S3
 
 #### Task 4 (T4): Filtering Tasks
 
-- **Scenario**: You've not got a lot of time to waste, and you need to find a certain task very quickly. There are 20 tasks already present.
+- **Scenario**: You've not got a lot of time to waste, and you need to find a certain task very quickly. There are 7 tasks already present.
 - **Action**: Please use the filter text box to filter the tasks for 'update'. Delete the only task that appears.
 - **Success**: The task 'Software update' is successfully deleted.
 - **Target time**: <14 seconds
-- **Linked to**: Week 6 Job Story 4
+- **Linked to**: Week 6 S4
 
 #### Task 5 (T5): No JavaScript is No Problem
 
@@ -123,7 +123,7 @@
 - **Action**: Please navigate to the tasks list, and edit the task named 'Check Edit noJS', changing its name to 'Delete Edit noJs'. Save it, then navigate back to it, and delete it.
 - **Success**: The task 'Check Edit noJS' is successfully deleted after being changed.
 - **Target time**: <13 seconds
-- **Linked to**: Week 6 Job Story 6
+- **Linked to**: Week 6 S6
 
 ---
 
@@ -135,10 +135,11 @@
 **Rights**:
 - [x] "Your participation is voluntary. You can stop at any time without giving a reason."
 - [x] "Your data will be anonymous. I'll use a code (like P1) instead of your name."
-- [x] "I may take screenshots and notes. I'll remove any identifying information."
+- [x] "I may take screenshots, screen recordings (without audio) and notes. I'll remove any identifying information."
+- [x] "I will only keep the data I collect until the end of this academic year, and it will be deleted before the new year begins." 
 - [x] "Do you consent to participate?" [Wait for verbal yes]
 
-**Recorded consent timestamp**: [e.g., "P1 consented 22/11/2025 14:05"]
+**Recorded consent timestamp**: [e.g., "P1 consented     22/11/2025 14:05"]
 
 ---
 
