@@ -58,3 +58,11 @@
 **Inclusion risk**: Cognitive, Device Dependency
 **Type**: Job story
 **WCAG**: 2.4.5 Multiple Ways (AA)
+
+## Story S6: No JavaScript is No Problem
+**Situation**: When I cannot use JavaScript on my browser
+**Motivation**: I want to still be able to use my applications, like my todo list.
+**Outcome**: So I don't miss important deadlines just because of a software or hardware limitation
+**Underlying need**: Because being able to use apps in different modes of accessibility is crucial for a well-designed application.
+
+**How Task 5 tests this**: The participant tests the navigation and functionality of the app when JavaScript is disabled.

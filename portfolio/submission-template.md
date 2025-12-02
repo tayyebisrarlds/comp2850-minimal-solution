@@ -24,7 +24,7 @@
 
 ### Link to Needs-Finding (LO2)
 
-**Week 6 Job Story #1**: Keyboard Navigation
+## **Week 6 Job Story #1**: Keyboard Navigation
 
 **Situation**: When I stop being able to use my trackpad/mouse
 **Motivation**: I want to be able to navigate the task manager using alternative methods
@@ -34,7 +34,7 @@
 
 **How Task 1 tests this**: The participant tests a relevant function with no mouse, ensuring usability.
 
-**Week 6 Job Story #2**: Confirmation visible
+## **Week 6 Job Story #2**: Confirmation visible
 
 **Situation**: When I submit a form (add/edit/delete task)
 **Motivation**: I want immediate, explicit confirmation that the action succeeded
@@ -44,7 +44,7 @@
 
 **How Task 2 tests this**: The participant performs a task requiring a confirmation message, and verifies the job story's concern is addressed.
 
-**Week 6 Job Story #3**: Updating Task Details
+## **Week 6 Job Story #3**: Updating Task Details
 
 **Situation**: When I realise I need to change a detail about a task (e.g., due date, priority, description)
 **Motivation**: I want to be able to quickly edit the task without starting from scratch
@@ -54,7 +54,7 @@
 
 **How Task 3 tests this**: Participant edits a given task with a more relevant name, demonstrating the working edit function.
 
-**Week 6 Job Story #4**: Filtering Tasks
+## **Week 6 Job Story #4**: Filtering Tasks
 
 **Situation**: When I look through my task list
 **Motivation**: I want to be able to separate my tasks using a search
@@ -64,15 +64,22 @@
 
 **How Task 4 tests this**: The participant tests the filter functionality and uses it to successfully delete a task.
 
-**Week 6 Job Story #5**: Keeping organised with deletion
+## Story S5: Reliable Access On Low Battery
+**Situation**: When I lose charge on my phone, therefore losing access to timed reminders
+**Motivation**: I want backup visibility (e.g. desktop alerts or synced reminders)
+**Outcome**: So I don't miss important tasks due to one device failing
+**Underlying need**: Because relying solely on one device increases the vulnerability of missed deadlines
+**WCAG**: 2.4.5 Multiple Ways (AA)
 
-**Situation**: When I organise my week by arranging my tasks
-**Motivation**: I want to be able to remove tasks I have completed
-**Outcome**: So the app stays clean and relevant with outstanding tasks only
-**Underlying need**: Because having useless information mixed with useful information looks cluttered
-**WCAG**: 2.4.7 Focus Visible (AA)
+**Task was not assigned for this story**
 
-**How Task 5 tests this**: The participant tests the deletion functionality by deleting a task.
+## Story S6: No JavaScript is No Problem
+**Situation**: When I cannot use JavaScript on my browser
+**Motivation**: I want to still be able to use my applications, like my todo list.
+**Outcome**: So I don't miss important deadlines just because of a software or hardware limitation
+**Underlying need**: Because being able to use apps in different modes of accessibility is crucial for a well-designed application.
+
+**How Task 5 tests this**: The participant tests the navigation and functionality of the app when JavaScript is disabled.
 
 ---
 
@@ -110,13 +117,13 @@
 - **Target time**: <14 seconds
 - **Linked to**: Week 6 Job Story 4
 
-### Task 5 (T5): Keeping organised with deletion
+#### Task 5 (T5): No JavaScript is No Problem
 
-- **Scenario**: There is a task which you have already completed, but forgot to remove yesterday. You want to keep your list as uncluttered as possible.
-- **Action**: Please delete the task named 'Add Delete functionality'.
-- **Success**: The task 'Add Delete functionality' is successfully deleted.
-- **Target time**: <8 seconds
-- **Linked to**: Week 6 Job Story 5
+- **Scenario**: Your browser's JavaScript functionality has stopped working - lots of websites you've tried no longer load correctly. You need to access your tasks to edit something you have due later.
+- **Action**: Please navigate to the tasks list, and edit the task named 'Check Edit noJS', changing its name to 'Delete Edit noJs'. Save it, then navigate back to it, and delete it.
+- **Success**: The task 'Check Edit noJS' is successfully deleted after being changed.
+- **Target time**: <13 seconds
+- **Linked to**: Week 6 Job Story 6
 
 ---
 
