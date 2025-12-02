@@ -119,9 +119,9 @@
 
 #### Task 5 (T5): No JavaScript is No Problem
 
-- **Scenario**: Your browser's JavaScript functionality has stopped working - lots of websites you've tried no longer load correctly. You need to access your tasks to edit something you have due later.
-- **Action**: Please navigate to the tasks list, and edit the task named 'Check Edit noJS', changing its name to 'Delete Edit noJs'. Save it, then navigate back to it, and delete it.
-- **Success**: The task 'Check Edit noJS' is successfully deleted after being changed.
+- **Scenario**: Your browser's JavaScript functionality has stopped working - lots of websites you've tried no longer load correctly. You need to access your tasks to add something you have due later.
+- **Action**: Please navigate to the tasks list, and add a task named 'Check add noJS'. Save it, then navigate back to it, and delete the task named 'Delete noJs'.
+- **Success**: The task 'Check add noJS' is successfully added, and 'Delete noJS' has been deleted. 
 - **Target time**: <13 seconds
 - **Linked to**: Week 6 S6
 
@@ -130,7 +130,7 @@
 ### Consent Script (They Read Verbatim)
 
 **Introduction**:
-"Thank you for participating in my HCI evaluation. This will take about 15 minutes. I'm testing my task management interface, not you. There are no right or wrong answers."
+"Thank you for participating in my HCI evaluation. This will take about 20 minutes. I'm testing my task management interface, not you. There are no right or wrong answers."
 
 **Rights**:
 - [x] "Your participation is voluntary. You can stop at any time without giving a reason."

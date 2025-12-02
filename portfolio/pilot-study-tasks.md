@@ -21,4 +21,4 @@ baf0cc07-d915-4c8d-bcf8-7c9fa4e0f812,Buy Milk,false,2025-12-01T12:39:32.153369
 f6155e0f-b875-46a3-833a-b68f9af447af,Don't turn Uplate,false,2025-12-02T11:04:08.844382
 
 # Task 5
-f6155e0f-b875-46a3-833a-b68f9af447af,Check Edit noJS,false,2025-12-02T11:04:08.844382
+f6155e0f-b875-46a3-833a-b68f9af447af,Delete noJS,false,2025-12-02T11:04:08.844382
