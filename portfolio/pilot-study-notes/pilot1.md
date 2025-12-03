@@ -44,7 +44,7 @@ T5 -
 ## T3
 - Editing task button is rather big and imposing
 - Double-click to edit would be nice
-- Name is very large compared to buttons
+- Name is very small compared to buttons
 - Edit & Delete look similar (colourwise), could be red for delete.
 
 ## T4

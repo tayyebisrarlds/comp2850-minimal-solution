@@ -4,7 +4,7 @@
 > Right-click the link above and select "Save link as..." to download the template file.
 
 **Student**: [Tayyeb Israr 201829422]
-**Submission date**: [12/12/2025]
+**Submission date**: [05/12/2025]
 **Academic Year**: 2025-26
 
 ---
@@ -16,15 +16,13 @@
 - [x] I confirm all participants gave informed consent
 - [x] I confirm this work is my own (AI tools used for code assistance are cited below)
 
-**AI tools used** (if any): [None]
+**AI tools used** (if any): None were required
 
 ---
 
-## 1. Protocol & Tasks
+## Job Stories
 
-### Link to Needs-Finding (LO2)
-
-## **Week 6 Job Story #1**: Keyboard Navigation
+## **Job Story #1**: Keyboard Navigation
 
 **Situation**: When I stop being able to use my trackpad/mouse
 **Motivation**: I want to be able to navigate the task manager using alternative methods
@@ -34,7 +32,7 @@
 
 **How Task 1 tests this**: The participant tests a relevant function with no mouse, ensuring usability.
 
-## **Week 6 Job Story #2**: Confirmation visible
+## **Job Story #2**: Confirmation visible
 
 **Situation**: When I submit a form (add/edit/delete task)
 **Motivation**: I want immediate, explicit confirmation that the action succeeded
@@ -44,7 +42,7 @@
 
 **How Task 2 tests this**: The participant performs a task requiring a confirmation message, and verifies the job story's concern is addressed.
 
-## **Week 6 Job Story #3**: Updating Task Details
+## **Job Story #3**: Updating Task Details
 
 **Situation**: When I realise I need to change a detail about a task (e.g., due date, priority, description)
 **Motivation**: I want to be able to quickly edit the task without starting from scratch
@@ -54,7 +52,7 @@
 
 **How Task 3 tests this**: Participant edits a given task with a more relevant name, demonstrating the working edit function.
 
-## **Week 6 Job Story #4**: Filtering Tasks
+## **Job Story #4**: Filtering Tasks
 
 **Situation**: When I look through my task list
 **Motivation**: I want to be able to separate my tasks using a search
@@ -64,7 +62,7 @@
 
 **How Task 4 tests this**: The participant tests the filter functionality and uses it to successfully delete a task.
 
-## Week 6 Story S5: Reliable Access On Low Battery
+## **Story S5**: Reliable Access On Low Battery
 **Situation**: When I lose charge on my phone, therefore losing access to timed reminders
 **Motivation**: I want backup visibility (e.g. desktop alerts or synced reminders)
 **Outcome**: So I don't miss important tasks due to one device failing
@@ -73,7 +71,7 @@
 
 **Task was not assigned for this story**
 
-## Week 6 Story S6: No JavaScript is No Problem
+## **Story S6**: No JavaScript is No Problem
 **Situation**: When I cannot use JavaScript on my browser
 **Motivation**: I want to still be able to use my applications, like my todo list.
 **Outcome**: So I don't miss important deadlines just because of a software or hardware limitation
@@ -83,7 +81,7 @@
 
 ---
 
-### Evaluation Tasks (4-5 tasks)
+## Evaluation Tasks (for Pilot Studies)
 
 #### Task 1 (T1): Keyboard Navigation
 
@@ -127,7 +125,7 @@
 
 ---
 
-### Consent Script (They Read Verbatim)
+### My Consent Script
 
 **Introduction**:
 "Thank you for participating in my HCI evaluation. This will take about 20 minutes. I'm testing my task management interface, not you. There are no right or wrong answers."
@@ -139,7 +137,23 @@
 - [x] "I will only keep the data I collect until the end of this academic year, and it will be deleted before the new year begins." 
 - [x] "Do you consent to participate?" [Wait for verbal yes]
 
-**Recorded consent timestamp**: [e.g., "P1 consented     22/11/2025 14:05"]
+## Participants & Consent
+
+| Participant Code | Read Consent Script to Participant | Date and Time of Given Consent |
+|------------------|------------------------------------|--------------------------------|
+| P1_1985          | Yes                                | 02/12/2025 14:42               |
+| P2_6741          | Yes                                | 02/12/2025 14:03               |
+| P3_1993          | Yes                                | 02/12/2025 14:20               |
+
+## Pilot Studies
+
+Tasks are completed using a mixture of keyboard/mouse and keyboard-only navigation. There are both JavaScript and non-JavaScript tasks.
+
+### Participant 1
+
+#### Notes
+
+
 
 ---
 
