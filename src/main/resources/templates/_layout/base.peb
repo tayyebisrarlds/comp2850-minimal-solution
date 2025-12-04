@@ -54,6 +54,16 @@
     button {
       color: white !important; /* White text on blue background for better contrast */
     }
+    button.btn-delete {
+        --pico-background-color: #d32f2f !important;
+        --pico-border-color: #b71c1c !important;
+        --pico-color: #ffffff !important;
+    }
+    button.btn-delete:hover,
+    button.btn-delete:focus {
+      --pico-background-color: #b71c1c !important;
+      --pico-border-color: #7f0000 !important;
+    }
   </style>
 </head>
 <body>

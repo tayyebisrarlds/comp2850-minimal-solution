@@ -1,4 +1,7 @@
 ts_iso,session_id,request_id,task_code,step,outcome,ms,http_status,js_mode
+2025-12-02T14:04:58.909621Z,P2_6741,r_99c9b7de,T0_list,success,,98,200,off
+2025-12-02T14:05:05.909621Z,P2_6741,r_98e5b230,T3_add,validation_error,min_length,0,400,on
+2025-12-02T14:05:12.909621Z,P2_6741,r_98e5b230,T3_add,success,,21,200,on
 2025-12-02T14:05:20.909621Z,P2_6741,r_c1b55661,T0_list,success,,6,200,off
 2025-12-02T14:05:35.942666Z,P2_6741,r_b7a0ea2d,T0_list,success,,8,200,off
 2025-12-02T14:05:40.309877Z,P2_6741,r_b367a17f,T3_add,success,,6,200,on

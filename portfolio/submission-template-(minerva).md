@@ -152,11 +152,11 @@
 
 | Finding                              | Data Source(s)                             | Observation                                                                                                                | WCAG                                   | Impact (1-5) | Inclusion (1-5) | Effort (1-5) | Priority |
 |--------------------------------------|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|----------------------------------------|--------------|-----------------|--------------|----------|
-| Delete Button not visually distinct  | P1_1985_pilot.md: T3, metrics.csv L41      | P1_1985: "Edit and Delete look the same in colour, could be red for delete.", 14:47                                        | 3.2.4 (AA) - Consistent Identification | 5            | 3               | 2            | 6        |
-| Filter Button redundant/unclear      | P3_1993_pilot.md: T4, metrics.csv L26-30   | P3_1993: "The filter button seems redundant because the bar itself does the filtering", 14:26                              | 3.3.2 (A) - Labels & Instructions      | 3            | 2               | 3            | 2        |
-| Title length requirement invisible   | P2_6741_pilot.md: T1                       | P2_6741: "You should make it known to the user that the title 3 or more characters", 14:05                                 | 3.3.2 (A) - Labels & Instructions      | 5            | 3               | 1            | 7        |
+| Delete Button not visually distinct  | P1_1985_pilot.md: T3, metrics.csv L44      | P1_1985: "Edit and Delete look the same in colour, could be red for delete.", 14:47                                        | 3.2.4 (AA) - Consistent Identification | 5            | 3               | 2            | 6        |
+| Filter Button redundant/unclear      | P3_1993_pilot.md: T4, metrics.csv L29-32   | P3_1993: "The filter button seems redundant because the bar itself does the filtering", 14:26                              | 3.3.2 (A) - Labels & Instructions      | 3            | 2               | 3            | 2        |
+| Title length requirement invisible   | P2_6741_pilot.md: T1, metrics.csv L3       | P2_6741: "You should make it known to the user that the title 3 or more characters", 14:05                                 | 3.3.2 (A) - Labels & Instructions      | 5            | 3               | 1            | 7        |
 | Confirmation behaviour inconsistent  | P2_6741_pilot.md: T2, P3_1993_pilot.md: T5 | P2_6741: "The pop-up window [for HTMX] is reassuring", 14:06, P3_1993_pilot.md: "No alert is given on page refresh", 14:28 | 3.3.4 (AA) - Error Prevention          | 3            | 4               | 4            | 3        |
-| Labels too small compared to buttons | P1_1985_pilot.md: T3, metrics.csv L41      | P1_1985: "The name [of the task] is very small compared to the buttons", 14:46                                             | 1.4.3 (AA) - Text Size / Contrast      | 3            | 4               | 1            | 6        |
+| Labels too small compared to buttons | P1_1985_pilot.md: T3, metrics.csv L44      | P1_1985: "The name [of the task] is very small compared to the buttons", 14:46                                             | 1.4.3 (AA) - Text Size / Contrast      | 3            | 4               | 1            | 6        |
 
 **Top 3 priorities for redesign**:
 
@@ -168,10 +168,11 @@
 
 ## 3. Pilot Metrics (metrics.csv)
 
-**Instructions**: Paste your raw CSV data here OR attach metrics.csv file
-
 ``` csv
 ts_iso,session_id,request_id,task_code,step,outcome,ms,http_status,js_mode
+2025-12-02T14:04:58.909621Z,P2_6741,r_99c9b7de,T0_list,success,,98,200,off
+2025-12-02T14:05:05.909621Z,P2_6741,r_98e5b230,T3_add,validation_error,min_length,0,400,on
+2025-12-02T14:05:12.909621Z,P2_6741,r_98e5b230,T3_add,success,,21,200,on
 2025-12-02T14:05:20.909621Z,P2_6741,r_c1b55661,T0_list,success,,6,200,off
 2025-12-02T14:05:35.942666Z,P2_6741,r_b7a0ea2d,T0_list,success,,8,200,off
 2025-12-02T14:05:40.309877Z,P2_6741,r_b367a17f,T3_add,success,,6,200,on
@@ -234,61 +235,91 @@ All participants used a mixture of both standard and non-standard setups.
 
 ------------------------------------------------------------------------
 
-## 4. Implementation Differences
+## 4. Implementation Diffs
 
-**Instructions**: Show before/after code for 1-3 fixes. Link each to findings table.
+### Fix 1: Add a task title length requirement
 
-### [Fix 1: \[Fix Name\]](#fix-1-fix-name){.header}
+**Addresses finding**: Finding #3 (Title length requirement invisible)
 
-**Addresses finding**: \[Finding #X from table above\]
-
-**Before** (\[file path:line number\]):
+**Before** (src/main/resources/templates/tasks/index.peb:49):
 
 ``` kotlin
-// ❌ Problem code
-[Paste your original code here]
+<small id="title-hint">Keep it short and specific.</small>
 ```
 
-**After** (\[file path:line number\]):
+**After** (src/main/resources/templates/tasks/index.peb:49):
 
 ``` kotlin
-// ✅ Fixed code
-[Paste your improved code here]
+<small id="title-hint">Keep it short and specific. <strong> 3 characters minimum </strong></small>
 ```
 
-**What changed**: \[1 sentence - what you added/removed/modified\]
+**What changed**: Modified the existing title hint to now include a requirement for the minimum length of a task title (3 characters).
 
-**Why**: \[1 sentence - which WCAG criterion or usability issue this fixes\]
+**Why**: This helps with WCAG 3.3.2 (A) - Labels & Instructions, as it informs the user on how to use a feature correctly.
 
-**Impact**: \[1-2 sentences - how this improves UX, who benefits\]
+**Impact**: The addition of this instruction inside the hint improves user experience by reducing stress and friction induced by 400 errors due to an invalid (too short) title being attempted as input. No regular users would have known this requirement, and this will also be announced by a screen reader, so this will benefit all users.
 
 ------------------------------------------------------------------------
 
-### [Fix 2: \[Fix Name\]](#fix-2-fix-name){.header}
+### Fix 2: Make the Delete button visually distinct from other buttons
 
-**Addresses finding**: \[Finding #X\]
+**Addresses finding**: Finding #1 (Delete Button not visually distinct)
+
+**Before**:
+
+(src/main/resources/templates/tasks/_item.peb:16)
+``` kotlin
+<button type="submit" aria-label="Delete task: {{ task.title }}">Delete</button>
+```
+
+**After**:
+
+(src/main/resources/templates/tasks/_item.peb:16)
+``` kotlin
+<button class="btn-delete" type="submit" aria-label="Delete task: {{ task.title }}">Delete</button>
+```
+
+(src/main/resources/templates/_layout/base.peb:57)
+``` css
+button.btn-delete {
+    --pico-background-color: #d32f2f !important;
+    --pico-border-color: #b71c1c !important;
+    --pico-color: #ffffff !important;
+}
+button.btn-delete:hover,
+button.btn-delete:focus {
+  --pico-background-color: #b71c1c !important;
+  --pico-border-color: #7f0000 !important;
+}
+```
+
+**What changed**: Modified the Delete Task button to be part of a class with special 'danger' styling, of red background, and added override styling in the base.
+
+**Why**: Helps with 3.2.4 (AA) - Consistent Identification, and clearly indicates a dangerous action to users.
+
+**Impact**: Changing the colour of the 'dangerous' button to reflect its apparent danger can clearly convey the severity of the action to users, helping them to think twice before mistakenly deleting a task, and can assist in reducing frustrating misclicks, improving UX.
+
+------------------------------------------------------------------------
+
+### Fix 3: Increase task title size relative to buttons
+
+**Addresses finding**: Finding #5 (Labels too small compared to buttons)
 
 **Before**:
 
 ``` kotlin
-[Original code]
 ```
 
 **After**:
 
 ``` kotlin
-[Fixed code]
 ```
 
 **What changed**:
 
-**Why**:
+**Why**: 
 
-**Impact**:
-
-------------------------------------------------------------------------
-
-\[Add Fix 3 if applicable\]
+**Impact**: 
 
 ------------------------------------------------------------------------
 
