@@ -227,9 +227,9 @@ ts_iso,session_id,request_id,task_code,step,outcome,ms,http_status,js_mode
 
 All participants used a mixture of both standard and non-standard setups.
 
--   **P1_1985**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard navigation
--   **P2_6741**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard-only
--   **P3_1993**: Standard Mouse + HTMX, 'Somewhat Confident' with keyboard navigation
+-   **P1_1985**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard navigation. Used JS and no-JS.
+-   **P2_6741**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard-only. Used JS and no-JS.
+-   **P3_1993**: Standard Mouse + HTMX, 'Somewhat Confident' with keyboard navigation. Used JS and no-JS.
 
 **Total participants**: n=3
 
@@ -282,14 +282,14 @@ All participants used a mixture of both standard and non-standard setups.
 (src/main/resources/templates/_layout/base.peb:57)
 ``` css
 button.btn-delete {
-    --pico-background-color: #d32f2f !important;
-    --pico-border-color: #b71c1c !important;
+    --pico-background-color: #962020 !important;
+    --pico-border-color: #7a1a1a !important;
     --pico-color: #ffffff !important;
 }
 button.btn-delete:hover,
 button.btn-delete:focus {
-  --pico-background-color: #b71c1c !important;
-  --pico-border-color: #7f0000 !important;
+    --pico-background-color: #7f0000 !important;
+    --pico-border-color: #5c0000 !important;
 }
 ```
 
@@ -307,93 +307,87 @@ button.btn-delete:focus {
 
 **Before**:
 
-``` kotlin
+(src/main/resources/statics/css/custom.css:193):
+
+``` css
+.task-title {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  word-wrap: break-word;
+}
 ```
 
 **After**:
 
-``` kotlin
+(src/main/resources/statics/css/custom.css:193):
+
+``` css
+.task-title {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  word-wrap: break-word;
+}
+```
+(src/main/resources/templates/_layout/base.peb:67):
+
+``` css
+.task-title {
+  font-size:2rem;
+}
 ```
 
-**What changed**:
+**What changed**: Added override on the font size, increasing the font size of the task title by a factor of 2.
 
-**Why**: 
+**Why**: Supports 1.4.3 (AA) - Text Size / Contrast, since it improves the ratio between overly large buttons and smaller text.
 
-**Impact**: 
+**Impact**: Improving the text size ratio benefits the user by increasing legibility and establishing the most important section within a task view, the title, rather than the buttons, ensuring it is visually prominent.
 
 ------------------------------------------------------------------------
 
-## [5. Verification Results](#5-verification-results){.header} {#5-verification-results}
+## 5. Verification Results
 
-### [Part A: Regression Checklist (20 checks)](#part-a-regression-checklist-20-checks){.header}
+### Part A: Regression Checklist (20 checks)
 
 **Instructions**: Test all 20 criteria. Mark pass/fail/n/a + add notes.
 
-::: table-wrapper
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| Check            | Criterion                             | Level       | Result            | Notes                                                          |
-+==================+=======================================+=============+===================+================================================================+
-| **Keyboard (5)** |                                       |             |                   |                                                                |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| K1               | 2.1.1 All actions keyboard accessible | A           | \[pass/fail\]     | \[e.g., "Tested Tab/Enter on all buttons"\]                    |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| K2               | 2.4.7 Focus visible                   | AA          | \[pass/fail\]     | \[e.g., "2px blue outline on all interactive elements"\]       |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| K3               | No keyboard traps                     | A           | \[pass/fail\]     | \[e.g., "Can Tab through filter, edit, delete without traps"\] |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| K4               | Logical tab order                     | A           | \[pass/fail\]     | \[e.g., "Top to bottom, left to right"\]                       |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| K5               | Skip links present                    | AA          | \[pass/fail/n/a\] | \[e.g., "Skip to main content works"\]                         |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| **Forms (3)**    |                                       |             |                   |                                                                |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| F1               | 3.3.2 Labels present                  | A           | \[pass/fail\]     | \[e.g., "All inputs have or aria-label"\]                      |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| F2               | 3.3.1 Errors identified               | A           | \[pass/fail\]     | \[e.g., "Errors have role=alert (FIXED in Fix #1)"\]           |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| F3               | 4.1.2 Name/role/value                 | A           | \[pass/fail\]     | \[e.g., "All form controls have accessible names"\]            |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| **Dynamic (3)**  |                                       |             |                   |                                                                |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| D1               | 4.1.3 Status messages                 | AA          | \[pass/fail\]     | \[e.g., "Status div has role=status"\]                         |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| D2               | Live regions work                     | AA          | \[pass/fail\]     | \[e.g., "Tested with NVDA, announces 'Task added'"\]           |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| D3               | Focus management                      | A           | \[pass/fail\]     | \[e.g., "Focus moves to error summary after submit"\]          |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| **No-JS (3)**    |                                       |             |                   |                                                                |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| N1               | Full feature parity                   | ---         | \[pass/fail\]     | \[e.g., "All CRUD ops work without JS"\]                       |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| N2               | POST-Redirect-GET                     | ---         | \[pass/fail\]     | \[e.g., "No double-submit on refresh"\]                        |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| N3               | Errors visible                        | A           | \[pass/fail\]     | \[e.g., "Error summary shown in no-JS mode"\]                  |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| **Visual (3)**   |                                       |             |                   |                                                                |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| V1               | 1.4.3 Contrast minimum                | AA          | \[pass/fail\]     | \[e.g., "All text 7.1:1 (AAA) via CCA"\]                       |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| V2               | 1.4.4 Resize text                     | AA          | \[pass/fail\]     | \[e.g., "200% zoom, no content loss"\]                         |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| V3               | 1.4.11 Non-text contrast              | AA          | \[pass/fail\]     | \[e.g., "Focus indicator 4.5:1"\]                              |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| **Semantic (3)** |                                       |             |                   |                                                                |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| S1               | 1.3.1 Headings hierarchy              | A           | \[pass/fail\]     | \[e.g., "h1 → h2 → h3, no skips"\]                             |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| S2               | 2.4.1 Bypass blocks                   | A           | \[pass/fail\]     | \[e.g., "                                                      |
-|                  |                                       |             |                   |                                                                |
-|                  |                                       |             |                   | ::: {role="main"}                                              |
-|                  |                                       |             |                   | landmark,                                                      |
-|                  |                                       |             |                   |                                                                |
-|                  |                                       |             |                   | for filter"\]                                                  |
-|                  |                                       |             |                   | :::                                                            |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-| S3               | 1.1.1 Alt text                        | A           | \[pass/fail\]     | \[e.g., "No images in interface OR all have alt"\]             |
-+------------------+---------------------------------------+-------------+-------------------+----------------------------------------------------------------+
-:::
+| Check            | Criterion                             | Level       | Result | Notes                                                                                                                    |
+|------------------|----------------------------------------|-------------|--------|--------------------------------------------------------------------------------------------------------------------------|
+| **Keyboard (5)** |                                        |             |        |                                                                                                                          |
+| K1               | 2.1.1 All actions keyboard accessible  | A           | Pass   | Tested tab and enter on all buttons, and all were functional.                                                            |
+| K2               | 2.4.7 Focus visible                    | AA          | Pass   | Barely passed - focus was visible on all elements, but quite hard to see on the blue buttons.                            |
+| K3               | No keyboard traps                      | A           | Pass   | Can successfully Tab through filter, edit, delete without any traps                                                      |
+| K4               | Logical tab order                      | A           | Pass   | Tabbing follows the sequential ordering of the elements.                                                                 |
+| K5               | Skip links present                     | AA          | Pass   | Skip to main content works perfectly.                                                                                    |
+| **Forms (3)**    |                                        |             |        |                                                                                                                          |
+| F1               | 3.3.2 Labels present                   | A           | Pass   | All the inputs have an associated label and an aria-describedby label, pointing to them/other elements.                  |
+| F2               | 3.3.1 Errors identified                | A           | Fail   | Errors announce themselves in every situation except when placed in the 'status' div.                                    |
+| F3               | 4.1.2 Name/role/value                  | A           | Pass   | All the form controls either have explicit or implicit roles which are also correctly announced by the screen reader.    |
+| **Dynamic (3)**  |                                        |             |        |                                                                                                                          |
+| D1               | 4.1.3 Status messages                  | AA          | Pass   | Status div exists, has status role, and appears after relevant events.                                                   |
+| D2               | Live regions work                      | AA          | Fail   | Events are not announced by the screen reader, only shown in text.                                                       |
+| D3               | Focus management                       | A           | Fail   | Focus does not correctly change to the error summary after a submit.                                                     |
+| **No-JS (3)**    |                                        |             |        |                                                                                                                          |
+| N1               | Full feature parity                    | ---         | Fail   | Edit functionality does not work in no-JS mode.                                                                          |
+| N2               | POST-Redirect-GET                      | ---         | Pass   | Functional and valid submissions only occur once.                                                                        |
+| N3               | Errors visible                         | A           | Fail   | Errors do not appear when in no-JS mode.                                                                                 |
+| **Visual (3)**   |                                        |             |        |                                                                                                                          |
+| V1               | 1.4.3 Contrast minimum                 | AA          | Pass   | All essential text, buttons, labels and headings meet AA. Only minor hint text is below.                                 |
+| V2               | 1.4.4 Resize text                      | AA          | Pass   | All content is still visible at 200% zoom.                                                                               |
+| V3               | 1.4.11 Non-text contrast               | AA          | Fail   | All non-text elements have acceptable contrast except the focus indicator which fails when on action buttons (e.g. Edit) |
+| **Semantic (3)** |                                        |             |        |                                                                                                                          |
+| S1               | 1.3.1 Headings hierarchy               | A           | Pass   | Headings are not skipped and follow proper hierarchy, h1 -> h2 -> h3.                                                    |
+| S2               | 2.4.1 Bypass blocks                    | A           | Pass   | A skip link exists for main content, and the main role is successfully linked to the main app area.                      |
+| S3               | 1.1.1 Alt text                         | A           | Pass   | No images have been used so passes by default.                                                                           |
 
-**Summary**: \[X/20 pass\], \[Y/20 fail\] **Critical failures** (if any): \[List any Level A fails\]
+
+**Summary**: 14/20 pass, 6/20 fail
+
+**Critical failures** (if any):
+- Errors identified
+- Focus management
+- Errors visible (no-JS)
 
 ------------------------------------------------------------------------
 

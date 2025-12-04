@@ -55,14 +55,17 @@
       color: white !important; /* White text on blue background for better contrast */
     }
     button.btn-delete {
-        --pico-background-color: #d32f2f !important;
-        --pico-border-color: #b71c1c !important;
+        --pico-background-color: #962020 !important;
+        --pico-border-color: #7a1a1a !important;
         --pico-color: #ffffff !important;
     }
     button.btn-delete:hover,
     button.btn-delete:focus {
-      --pico-background-color: #b71c1c !important;
-      --pico-border-color: #7f0000 !important;
+        --pico-background-color: #7f0000 !important;
+        --pico-border-color: #5c0000 !important;
+    }
+    .task-title {
+      font-size:2rem;
     }
   </style>
 </head>
