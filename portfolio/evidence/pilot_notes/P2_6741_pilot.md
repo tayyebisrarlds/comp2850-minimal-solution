@@ -2,7 +2,8 @@ Consent - Yes
 User ID - P2_6741
 P2_6741 consented 02/12/2025 14:03
 
-# Terminal
+# Metrics
+
 - T1
 
 2025-12-02T14:05:20.909621Z,P2_6741,r_c1b55661,T0_list,success,,6,200,off

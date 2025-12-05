@@ -15,6 +15,9 @@
 
 **AI tools used** (if any): None were required.
 
+Name: TAYYEB ISRAR
+Date: 05/12/2025
+
 ------------------------------------------------------------------------
 
 ## 1. Protocol & Tasks
@@ -153,8 +156,6 @@
 | T1 - Keyboard Navigation         | < 10            | 7.78          | 8.13            | 5.22 - 10.0        | 2.22              | 1.87                          |
 | T2 - Confirmation Visible        | < 8             | 5.13          | 5.13            | 4.38 - 5.88        | 2.87              | 0.75                          |
 | T3 - Updating Task Details       | < 12            | 15.45         | 9.73            | 9.64 - 26.97       | -3.45             | 0.09                          |
-| T4 - Filtering Tasks             | < 14            | 10.52         | 10.2            | 9.58 - 11.78       | 3.48              | 0.62                          |
-| T5 - No JavaScript is No Problem | < 18            | 18.59         | 15.31           | 11.9 - 28.57       | -0.59             | 3.41                          |
 
 ### Reflection / Initial Thoughts
 
@@ -352,11 +353,11 @@ button.btn-delete:focus {
 
 ``` css
 .task-title {
-  font-size:2rem;
+  font-size:1.5rem;
 }
 ```
 
-**What changed**: Added override on the font size, increasing the font size of the task title by a factor of 2.
+**What changed**: Added override on the font size, increasing the font size of the task title by a factor of 1.5.
 
 **Why**: Supports 1.4.3 (AA) - Text Size / Contrast, since it improves the ratio between overly large buttons and smaller text.
 
@@ -371,164 +372,279 @@ button.btn-delete:focus {
 **Instructions**: Test all 20 criteria. Mark pass/fail/n/a + add notes.
 
 | Check            | Criterion                             | Level       | Result | Notes                                                                                                                    |
-|------------------|----------------------------------------|-------------|--------|--------------------------------------------------------------------------------------------------------------------------|
-| **Keyboard (5)** |                                        |             |        |                                                                                                                          |
-| K1               | 2.1.1 All actions keyboard accessible  | A           | Pass   | Tested tab and enter on all buttons, and all were functional.                                                            |
-| K2               | 2.4.7 Focus visible                    | AA          | Pass   | Barely passed - focus was visible on all elements, but quite hard to see on the blue buttons.                            |
-| K3               | No keyboard traps                      | A           | Pass   | Can successfully Tab through filter, edit, delete without any traps                                                      |
-| K4               | Logical tab order                      | A           | Pass   | Tabbing follows the sequential ordering of the elements.                                                                 |
-| K5               | Skip links present                     | AA          | Pass   | Skip to main content works perfectly.                                                                                    |
-| **Forms (3)**    |                                        |             |        |                                                                                                                          |
-| F1               | 3.3.2 Labels present                   | A           | Pass   | All the inputs have an associated label and an aria-describedby label, pointing to them/other elements.                  |
-| F2               | 3.3.1 Errors identified                | A           | Fail   | Errors announce themselves in every situation except when placed in the 'status' div.                                    |
-| F3               | 4.1.2 Name/role/value                  | A           | Pass   | All the form controls either have explicit or implicit roles which are also correctly announced by the screen reader.    |
-| **Dynamic (3)**  |                                        |             |        |                                                                                                                          |
-| D1               | 4.1.3 Status messages                  | AA          | Pass   | Status div exists, has status role, and appears after relevant events.                                                   |
-| D2               | Live regions work                      | AA          | Fail   | Events are not announced by the screen reader, only shown in text.                                                       |
-| D3               | Focus management                       | A           | Fail   | Focus does not correctly change to the error summary after a submit.                                                     |
-| **No-JS (3)**    |                                        |             |        |                                                                                                                          |
-| N1               | Full feature parity                    | ---         | Fail   | Edit functionality does not work in no-JS mode.                                                                          |
-| N2               | POST-Redirect-GET                      | ---         | Pass   | Functional and valid submissions only occur once.                                                                        |
-| N3               | Errors visible                         | A           | Fail   | Errors do not appear when in no-JS mode.                                                                                 |
-| **Visual (3)**   |                                        |             |        |                                                                                                                          |
-| V1               | 1.4.3 Contrast minimum                 | AA          | Pass   | All essential text, buttons, labels and headings meet AA. Only minor hint text is below.                                 |
-| V2               | 1.4.4 Resize text                      | AA          | Pass   | All content is still visible at 200% zoom.                                                                               |
-| V3               | 1.4.11 Non-text contrast               | AA          | Fail   | All non-text elements have acceptable contrast except the focus indicator which fails when on action buttons (e.g. Edit) |
-| **Semantic (3)** |                                        |             |        |                                                                                                                          |
-| S1               | 1.3.1 Headings hierarchy               | A           | Pass   | Headings are not skipped and follow proper hierarchy, h1 -> h2 -> h3.                                                    |
-| S2               | 2.4.1 Bypass blocks                    | A           | Pass   | A skip link exists for main content, and the main role is successfully linked to the main app area.                      |
-| S3               | 1.1.1 Alt text                         | A           | Pass   | No images have been used so passes by default.                                                                           |
+|------------------|---------------------------------------|-------------|--------|--------------------------------------------------------------------------------------------------------------------------|
+| **Keyboard (5)** |                                       |             |        |                                                                                                                          |
+| K1               | 2.1.1 All actions keyboard accessible | A           | Pass   | Tested tab and enter on all buttons, and all were functional.                                                            |
+| K2               | 2.4.7 Focus visible                   | AA          | Pass   | Barely passed - focus was visible on all elements, but quite hard to see on the blue buttons.                            |
+| K3               | No keyboard traps                     | A           | Pass   | Can successfully Tab through filter, edit, delete without any traps                                                      |
+| K4               | Logical tab order                     | A           | Pass   | Tabbing follows the sequential ordering of the elements.                                                                 |
+| K5               | Skip links present                    | AA          | Pass   | Skip to main content works perfectly.                                                                                    |
+| **Forms (3)**    |                                       |             |        |                                                                                                                          |
+| F1               | 3.3.2 Labels present                  | A           | Pass   | All the inputs have an associated label and an aria-describedby label, pointing to them/other elements.                  |
+| F2               | 3.3.1 Errors identified               | A           | Pass   | Errors announce themselves in every situation from within the 'status' div.                                              |
+| F3               | 4.1.2 Name/role/value                 | A           | Pass   | All the form controls either have explicit or implicit roles which are also correctly announced by the screen reader.    |
+| **Dynamic (3)**  |                                       |             |        |                                                                                                                          |
+| D1               | 4.1.3 Status messages                 | AA          | Pass   | Status div exists, has status role, and appears after relevant events.                                                   |
+| D2               | Live regions work                     | AA          | Fail   | Events are not announced by the screen reader, only shown in text.                                                       |
+| D3               | Focus management                      | A           | Fail   | Focus does not correctly change to the error summary after a submit.                                                     |
+| **No-JS (3)**    |                                       |             |        |                                                                                                                          |
+| N1               | Full feature parity                   | ---         | Fail   | Edit functionality does not work in no-JS mode.                                                                          |
+| N2               | POST-Redirect-GET                     | ---         | Pass   | Functional and valid submissions only occur once.                                                                        |
+| N3               | Errors visible                        | A           | Fail   | Errors do not appear when in no-JS mode.                                                                                 |
+| **Visual (3)**   |                                       |             |        |                                                                                                                          |
+| V1               | 1.4.3 Contrast minimum                | AA          | Pass   | All essential text, buttons, labels and headings meet AA. Only minor hint text is below.                                 |
+| V2               | 1.4.4 Resize text                     | AA          | Pass   | All content is still visible at 200% zoom.                                                                               |
+| V3               | 1.4.11 Non-text contrast              | AA          | Fail   | All non-text elements have acceptable contrast except the focus indicator which fails when on action buttons (e.g. Edit) |
+| **Semantic (3)** |                                       |             |        |                                                                                                                          |
+| S1               | 1.3.1 Headings hierarchy              | A           | Pass   | Headings are not skipped and follow proper hierarchy, h1 -> h2 -> h3.                                                    |
+| S2               | 2.4.1 Bypass blocks                   | A           | Pass   | A skip link exists for main content, and the main role is successfully linked to the main app area.                      |
+| S3               | 1.1.1 Alt text                        | A           | Pass   | No images have been used so passes by default.                                                                           |
 
 
-**Summary**: 14/20 pass, 6/20 fail
+**Summary**: 15/20 pass, 5/20 fail
 
 **Critical failures** (if any):
-- F2 - Errors identified - Currently, errors are not always announced. This could be fixed by adding the right aria-live value or role to the 'status' div to ensure it always announces errors.
-- Focus management - Since the focus does not accurately swap focus, I could change the focusing logic or add an anchor to that point of the page.
-- Errors visible (no-JS) - As of right now, the noJS version is incapable of displaying errors. This could be fixed by adding a special section in the server-side rendering of the template with a status/error message.
+- D3: Focus management - Since the focus does not accurately swap focus, I could change the focusing logic or add an anchor to that point of the page.
+- N3: Errors visible (no-JS) - As of right now, the noJS version is incapable of displaying errors. This could be fixed by adding a special section in the server-side rendering of the template with a status/error message.
+
+## 7. Second Pilot
+
+### My Consent Script (I read verbatim)
+
+**Introduction**:
+"Thank you for participating in my HCI evaluation. This will take about 20 minutes. I'm testing my task management interface, not you. There are no right or wrong answers."
+
+**Rights**:
+- [x] "Your participation is voluntary. You can stop at any time without giving a reason."
+- [x] "Your data will be anonymous. I'll use a code (like P1) instead of your name."
+- [x] "I may take screenshots, screen recordings (without audio) and notes. I'll remove any identifying information."
+- [x] "I will only keep the data I collect until the end of this academic year, and it will be deleted before the new year begins."
+- [x] "Do you consent to participate?" [Wait for verbal yes]
+
+### Participants & Consent
+
+| Participant Code | Read Consent Script to Participant | Date and Time of Given Consent |
+|------------------|------------------------------------|--------------------------------|
+| P4_1337          | Yes                                | 05/12/2025 12:01               |
+| P5_3591          | Yes                                | 05/12/2025 14:21               |
+
+---
+
+### Metrics Breakdown 2
+
+| Task                             | Target Time (s) | Mean Time (s) | Median Time (s) | Range of Times (s) | Target - Mean (s) | Median Absolute Deviation (s) |
+|----------------------------------|-----------------|---------------|-----------------|--------------------|-------------------|-------------------------------|
+| T1 - Keyboard Navigation         | < 10            | 4.16          | 4.16            | 3.48 - 4.84        | 5.84              | 0.68                          |
+| T2 - Confirmation Visible        | < 8             | 3.93          | 3.93            | 3.69 - 4.17        | 4.07              | 0.24                          |
+| T3 - Updating Task Details       | < 12            | 5.41          | 5.41            | 5.22 - 5.60        | 6.59              | 0.19                          |
+| T4 - Filtering Tasks             | < 14            | 8.62          | 8.62            | 7.99 - 5.24        | 5.38              | 0.63                          |
+| T5 - No JavaScript is No Problem | < 18            | 8.00          | 8.00            | 7.70 - 8.29        | 10.0              | 0.29                          |
 
 ------------------------------------------------------------------------
 
-### [Part B: Before/After Comparison](#part-b-beforeafter-comparison){.header}
+### Part B: Before/After Comparison
 
-**Instructions**: Compare Week 9 baseline (pre-fix) to Week 10 (post-fix). Show improvement.
+Key: 
+- MAD = Median Absolute Deviation, a measure of consistency
 
-| Metric                 | Before (Week 9, n=3) | After (Week 10, n=2) | Change         | Target Met? |
-|------------------------|----------------------|----------------------|----------------|-------------|
-| SR error detection     | [e.g., 0/2 (0%)]     | [e.g., 2/2 (100%)]   | [e.g., +100%]  |             |
-| Validation error rate  | [e.g., 33%]          | [e.g., 0%]           | [e.g., -33%]   |             |
-| Median time [Task X]   | [e.g., 1400ms]       | [e.g., 1150ms]       | [e.g., -250ms] |             |
-| WCAG [criterion] pass  | [fail]               | [pass]               | [---]          |             |
+| Metric                | Before (Week 9, n=3) | After (Week 10, n=2) | Change | Target Met? |
+|-----------------------|----------------------|----------------------|--------|-------------|
+| No-JS error detection | 0/3 (0%)             | 0/2 (0%)             | +0%    | No          |
+| Task Input Error Rate | 1/3 (33%)            | 0/2 (0%)             | -33%   | Yes         |
+| Focus Management Rate | 0/3 (0%)             | 0/2 (0%)             | +0%    | No          |
+| Task 1 Median         | 8.13s                | 4.16s                | -43.8% | Yes         |
+| Task 1 MAD            | 1.87s                | 0.68s                | -63.6% | N/A         |
+| Task 2 Median         | 5.13s                | 3.93s                | -23.4% | Yes         |
+| Task 2 MAD            | 0.75s                | 0.24s                | -68.0% | N/A         |
+| Task 3 Median         | 9.73s                | 5.41s                | -44.4% | Yes         |
+| Task 3 MAD            | 0.09s                | 0.19s                | +111%  | N/A         |
+| Task 4 Median         | 10.2s                | 8.62s                | -15.5% | Yes         |
+| Task 4 MAD            | 0.62s                | 0.63s                | -1.61% | N/A         |
+| Task 5 Median         | 18.59s               | 8.00s                | -60.0% | Yes         |
+| Task 5 MAD            | 3.41s                | 0.29s                | -91.5% | N/A         |
+| WCAG 1.4.3 pass       | Fail                 | Pass                 | +100%  | Yes         |
 
 **Re-pilot details**:
 
--   **P5** (post-fix): \[Variant - e.g., "Screen reader user, NVDA + keyboard"\] - \[Date piloted\]
--   **P6** (if applicable): \[Variant\] - \[Date\]
+All participants once again used a mixture of both standard and non-standard setups.
 
-**Limitations / Honest reporting**: \[If metrics didn't improve or only modestly: explain why. Small sample size? Wrong fix? Needs more iteration? Be honest - valued over perfect results.\]
+-   **P4_1337**: Standard Mouse + HTMX, 'Not Comfortable' with keyboard navigation. Used both JS and no-JS.
+-   **P5_3591**: Standard Mouse + HTMX, 'Not Comfortable' with keyboard-only. Used JS and no-JS.
 
-------------------------------------------------------------------------
-
-## [7. Evidence Folder Contents](#6-evidence-folder-contents){.header} {#6-evidence-folder-contents}
-
-**Instructions**: List all files in your evidence/ folder. Provide context.
-
-### [Screenshots](#screenshots){.header}
-
-::: table-wrapper
-Filename                    What it shows                           Context/Link to finding
-  --------------------------- --------------------------------------- --------------------------------------
-before-sr-error.png         Error message without role="alert"      Finding #1 - SR errors not announced
-after-sr-error.png          Error message WITH role="alert" added   Fix #1 verification
-regression-axe-report.png   axe DevTools showing 0 violations       Verification Part A
-\[your-screenshot-3.png\]   \[Description\]                         \[Which finding/fix this supports\]
-:::
-
-**PII check**:
-
--   All screenshots cropped to show only relevant UI
--   Browser bookmarks/tabs not visible
--   Participant names/emails blurred or not visible
+**Limitations / Honest reporting**: The changes seemed to be successful overall. Participant results suggested that the time of completion has reduced across the board, sometimes quite dramatically. However, it must be acknowledged that the sample size of n=2 for the repilot was smaller than the original, which can cause misrepresentation of real effects. Furthermore, some metrics and critical issues remain unchanged - this is due to different fixes being done (based on perhaps-misjudged priority).
 
 ------------------------------------------------------------------------
 
-### [Pilot Notes](#pilot-notes){.header}
+## 8. Evidence Folder Contents
 
-**Instructions**: Attach pilot notes as separate files (P1-notes.md, P2-notes.md, etc.). Summarize key observations here.
+### Screenshots
 
-**P1** (\[ Variant - e.g., "Standard mouse + HTMX"\]):
+| Filename                  | What it shows                               | Context / Link to finding                          |
+|---------------------------|---------------------------------------------|----------------------------------------------------|
+| before_fix1_hint.png      | App without task title hint                 | Finding #3 – Title length requirement invisible    |
+| after_fix1_hint.png       | App with task title hint added              | Finding #3 – Title length requirement invisible    |
+| before_fix2_delete.png    | App with original blue Delete button        | Finding #1 - Delete Button not visually distinct   |
+| after_fix2_delete.png     | App with modified red Delete button         | Finding #1 - Delete Button not visually distinct   |
+| before_fix3_title.png     | App with previous, smaller, title font size | Finding #3 - Labels too small compared to buttons  |
+| after_fix3_title.png      | App with larger title font size             | Finding #3 - Labels too small compared to buttons  |
+| regression-axe-report.png | Axe DevTools screenshot of 0 issues         | Verification of WCAG violation not being committed |
 
--   **Key observation 1**: \[Quote + timestamp - e.g., "Struggled with filter button (09:47)"\]
--   **Key observation 2**: \[Quote + timestamp\]
-
-**P2** (\[Variant\]):
-
--   **Key observation 1**: \[Quote + timestamp\]
--   **Key observation 2**: \[Quote + timestamp\]
-
-\[Repeat for P3, P4 if applicable\]
 
 ------------------------------------------------------------------------
 
-## [Evidence Chain Example (Full Trace)](#evidence-chain-example-full-trace){.header}
+### Pilot Notes
+  
+- **P1_1985**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard navigation. Used JS and no-JS:
 
-**Instructions**: Pick ONE finding and show complete evidence trail from data → fix → verification.
+T1
+- Time was stressful (pressure)
+- Works fine
+- Tab is simple and easy to use
+- Moderately confident using keyboard navigation, doesn't use it often
 
-**Finding selected**: \[e.g., "Finding #1 - SR errors not announced"\]
+T2
+- Simple to delete a task
+- Having to confirm each time is annoying
+- Mouse is slow
+
+T3
+- Editing task button is rather big and imposing
+- Double-click to edit would be nice
+- Name is very small compared to buttons
+- Edit & Delete look similar (colourwise), could be red for delete.
+
+T4
+- Apply filter button is pointless, as the search is dynamic
+- Filtering section looks nice/polished (UI).
+- Feels like a search bar - no ability to search by time created/category.
+
+T5
+- No confirmation on deletion, could add
+- Otherwise no noticeable difference, refresh is so fast and therefore can't see it.
+- Quick
+
+-   **P2_6741**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard-only. Used JS and no-JS:
+
+T1
+- Simple task, basic testing.
+- Make it known to the user that the title is >= 3 characters.
+- Add a description for that section.
+- Moderately confident in using the keyboard navigation.
+
+T2
+- Easy to remove task
+- Pop-up window is reassuring
+- Would it work with a screen reader (from a dev perspective)?
+- Recycle bin to restore deleted tasks
+- Delete should signal danger, with colour red
+
+T3
+- Different colour for edit/save buttons, symbols maybe
+- Intuitive to edit a task
+- Text is good-sized
+
+T4
+- Easy to use
+- Looks nice
+- Totally fine as-is
+
+T5
+- Works the same
+- Refresh is a little annoying
+
+- **P3_1993**: Standard Mouse + HTMX, 'Somewhat Confident' with keyboard navigation. Used JS and no-JS. 
+
+T1
+- Task was easy and intuitive
+- Using Tab for navigation is standard and simple
+- Somewhat comfortable using keyboard navigation, but prefers mouse
+- Alert wasn't immediately visible
+
+T2
+- Very easy, easier than the first, because mouse is available for navigation
+- Delete could be red to signal danger.
+- Prompt is fine
+
+T3
+- Little harder due to more options - need to be careful about pressing the right button
+- Cancel is smaller than Save which is nice so don't accidentally cancel.
+
+T4
+- Fast when filtering, it's not immediately obvious if being filtered or not when viewed from above
+- Filter button seems redundant because the bar itself handles the filtering
+
+T5
+- Easy to use
+- No alert is given on page refresh
+- Didn't notice the refreshes
+
+- **P4_1337**: Standard Mouse + HTMX, 'Not Comfortable' with keyboard navigation. Used both JS and no-JS.
+
+T1
+- Good that you can add tasks with enter
+- Easy and intuitive to complete the task
+- Not comfortable with keyboard navigation on web browsers, only NeoVim bindings
+
+T2
+- Easy task
+- Not a a fan of red button, but it does signify danger to the user which is good.
+- Red border instead of button would be nice
+
+T3
+- Task was easy, straightforward
+- Cancel button could be a little bigger.
+- Colour is nice
+
+T4
+- Easy task to complete
+- Task names look nice, decently-sized
+- Didn't use the filter button.
+
+T5
+- Task was fine, had no problems
+- Refresh was quite fast, not jarring and hard to notice
+- No alert was given at the top
+
+- **P5_3591**: Standard Mouse + HTMX, 'Not Comfortable' with keyboard-only. Used JS and no-JS.
+
+T1
+- Simple task, straightforward to complete
+- UI is boring and easy to understand
+- Not comfortable with keyboard navigation
+
+T2
+- Easy task
+- Not a fan of JavaScript status message, looks ugly
+
+T3
+- Simple task
+- Same UI, no real complaints
+
+T4
+- Easy to complete task
+- UI was fine
+- Average user won't understand why the filter section specifies it works without JavaScript
+
+T5
+- Easy to do
+- UI is boring and simple
+
+------------------------------------------------------------------------
+
+## Evidence Chain Example (Full Trace)
+
+Here is one finding with a complete evidence trail from data → fix → verification.
+
+**Finding selected**: Finding #3 – Title length requirement invisible
 
 **Evidence trail**:
 
-1.  **Data**: metrics.csv lines 47-49 show P2 (SR user) triggered validation_error 3 times
-2.  **Observation**: P2 pilot notes timestamp 14:23 - Quote: "I don't know if it worked, didn't hear anything"
-3.  **Screenshot**: before-sr-error.png shows error message has no role="alert" or aria-live
-4.  **WCAG**: 3.3.1 Error Identification (Level A) violation - errors not programmatically announced
-5.  **Prioritisation**: findings-table.csv row 1 - Priority score 7 (Impact 5 + Inclusion 5 - Effort 3)
-6.  **Fix**: implementation-diffs.md Fix #1 - Added role="alert" + aria-live="assertive" to error span
-7.  **Verification**: verification.csv Part A row F2 - 3.3.1 now PASS (tested with NVDA)
-8.  **Before/after**: verification.csv Part B - SR error detection improved from 0% to 100%
-9.  **Re-pilot**: P5 (SR user) pilot notes - "Heard error announcement immediately, corrected and succeeded"
-
-**Complete chain**: Data → Observation → Interpretation → Fix → Verification ✅
-
-------------------------------------------------------------------------
-
-## [Submission Checklist](#submission-checklist){.header}
-
-Before submitting, verify:
-
-**Files**:
-
--   This completed template (submission-template.md)
--   metrics.csv (or pasted into Section 3)
--   Pilot notes (P1-notes.md, P2-notes.md, etc. OR summarised in Section 6)
--   Screenshots folder (all images referenced above)
--   Privacy statement signed (top of document)
-
-**Evidence chains**:
-
--   findings-table.csv links to metrics.csv lines AND/OR pilot notes timestamps
--   implementation-diffs.md references findings from table
--   verification.csv Part B shows before/after for fixes
-
-**Quality**:
-
--   No PII in screenshots (checked twice!)
--   Session IDs anonymous (P1_xxxx format, not real names)
--   Honest reporting (limitations acknowledged if metrics didn't improve)
--   WCAG criteria cited specifically (e.g., "3.3.1" not just "accessibility")
-
-**Pass criteria met**:
-
--   n=2+ participants (metrics.csv has 2+ session IDs)
--   3+ findings with evidence (findings-table.csv complete)
--   1-3 fixes implemented (implementation-diffs.md shows code)
--   Regression complete (verification.csv has 20 checks)
--   Before/after shown (verification.csv Part B has data)
-
-------------------------------------------------------------------------
-
-**Ready to submit?** Upload this file + evidence folder to Gradescope by end of Week 10.
-
-**Estimated completion time**: 12-15 hours across Weeks 9-10
-
-**Good luck!**
+1.  **Data**: P2_6741_pilot.md: T1, metrics.csv L3 also show that P2 triggered the validation due to a task that was too short in length.
+2.  **Observation**: P2_6741_pilot.md: T1, complained about the lack of information.
+3.  **Screenshot**: before-fix1-hint.png shows a lack of hints for how long a task name should be.
+4.  **WCAG**: 3.3.2 (A) - Labels & Instructions violation - not enough instruction given to user (unlabeled requirement).
+5.  **Prioritisation**: Findings Table (above) row 3 - Priority score 7 (Impact 5 + Inclusion 3 - Effort 1)
+6.  **Fix**: Implementation Diffs section Fix #1 - Modified the existing title hint to now include a requirement for the minimum length of a task title (3 characters).
+7.  **Verification**: Verification Section Part A row F1 - 3.3.1 is now a PASS
+8.  **Before/after**: 7.  Verification Table Before/After comparison shows a Pass where it was previously a Fail.
+9.  **Re-pilot**: P4_1337 was able to successfully complete the associated task in 3.48 seconds, which was a record time.

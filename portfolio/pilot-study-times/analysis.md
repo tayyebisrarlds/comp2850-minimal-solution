@@ -28,7 +28,7 @@
 | T4 - Filtering Tasks             | 10.2     |
 | T5 - No JavaScript is No Problem | 15.31    |
 
-# Overall
+# Overall (First Study)
 
 | Task                             | Target Time (s) | Mean Time (s) | Median Time (s) | Range of Times (s) | Target - Mean (s) | Median Absolute Deviation (s) |
 |----------------------------------|-----------------|---------------|-----------------|--------------------|-------------------|-------------------------------|
@@ -38,3 +38,32 @@
 | T4 - Filtering Tasks             | < 14            | 10.52         | 10.2            | 9.58 - 11.78       | 3.48              | 0.62                          |
 | T5 - No JavaScript is No Problem | < 18            | 18.59         | 15.31           | 11.9 - 28.57       | -0.59             | 3.41                          |
 
+# T4
+
+| Task                             | Time (s) |
+|----------------------------------|----------|
+| T1 - Keyboard Navigation         | 3.48     |
+| T2 - Confirmation Visible        | 4.17     |
+| T3 - Updating Task Details       | 5.6      |
+| T4 - Filtering Tasks             | 7.99     |
+| T5 - No JavaScript is No Problem | 7.7      |
+
+# T5
+
+| Task                             | Time (s) |
+|----------------------------------|----------|
+| T1 - Keyboard Navigation         | 4.84     |
+| T2 - Confirmation Visible        | 3.69     |
+| T3 - Updating Task Details       | 5.22     |
+| T4 - Filtering Tasks             | 9.24     |
+| T5 - No JavaScript is No Problem | 8.29     |
+
+# Overall (Second Study)
+
+| Task                             | Target Time (s) | Mean Time (s) | Median Time (s) | Range of Times (s) | Target - Mean (s) | Median Absolute Deviation (s) |
+|----------------------------------|-----------------|---------------|-----------------|--------------------|-------------------|-------------------------------|
+| T1 - Keyboard Navigation         | < 10            | 4.16          | 4.16            | 3.48 - 4.84        | 5.84              | 0.68                          |
+| T2 - Confirmation Visible        | < 8             | 3.93          | 3.93            | 3.69 - 4.17        | 4.07              | 0.24                          |
+| T3 - Updating Task Details       | < 12            | 5.41          | 5.41            | 5.22 - 5.60        | 6.59              | 0.19                          |
+| T4 - Filtering Tasks             | < 14            | 8.62          | 8.62            | 7.99 - 5.24        | 5.38              | 0.63                          |
+| T5 - No JavaScript is No Problem | < 18            | 8.00          | 8.00            | 7.70 - 8.29        | 10.0              | 0.29                          |
