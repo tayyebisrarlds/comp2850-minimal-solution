@@ -103,7 +103,7 @@
 - **Scenario**: You've just completed the first section of a multi-step task, and it seems wrong to create a new task for the next part.
 - **Action**: Please edit a task from the list, giving it the name '[Name of the task] Part 2', and then save it.
 - **Success**: The task is saved in the list with the correct name, and there is an alert confirmation at the top.
-- **Target time**: <10 seconds
+- **Target time**: <12 seconds
 - **Linked to**: Job Story 3
 
 #### Task 4 (T4): Filtering Tasks
@@ -119,7 +119,7 @@
 - **Scenario**: Your browser's JavaScript functionality has stopped working - lots of websites you've tried no longer load correctly. You need to access your tasks to add something you have due later.
 - **Action**: Please navigate to the tasks list, and add a task named 'Check add noJS'. Save it, then navigate back to it, and delete the task named 'Delete noJs'.
 - **Success**: The task 'Check add noJS' is successfully added, and 'Delete noJS' has been deleted.
-- **Target time**: <12 seconds
+- **Target time**: <18 seconds
 - **Linked to**: Job Story 6
 
 ---
@@ -146,7 +146,25 @@
 
 ---
 
-## 2. Findings Table
+## 2. Metrics Breakdown
+
+| Task                             | Target Time (s) | Mean Time (s) | Median Time (s) | Range of Times (s) | Target - Mean (s) | Median Absolute Deviation (s) |
+|----------------------------------|-----------------|---------------|-----------------|--------------------|-------------------|-------------------------------|
+| T1 - Keyboard Navigation         | < 10            | 7.78          | 8.13            | 5.22 - 10.0        | 2.22              | 1.87                          |
+| T2 - Confirmation Visible        | < 8             | 5.13          | 5.13            | 4.38 - 5.88        | 2.87              | 0.75                          |
+| T3 - Updating Task Details       | < 12            | 15.45         | 9.73            | 9.64 - 26.97       | -3.45             | 0.09                          |
+| T4 - Filtering Tasks             | < 14            | 10.52         | 10.2            | 9.58 - 11.78       | 3.48              | 0.62                          |
+| T5 - No JavaScript is No Problem | < 18            | 18.59         | 15.31           | 11.9 - 28.57       | -0.59             | 3.41                          |
+
+### Reflection / Initial Thoughts
+
+My data contains some valuable insights into the overall task performance. All of the tasks are relatively close to the target times, with some above and others below.
+The Median Absolute Deviations suggest a fairly close spread, but the high spread in the range shows outliers. One key outlier in this study can be explained by one participant,
+whose 'low typing speed' which noticeably affected their times to complete certain tasks involving extra/precise typing, such as Tasks 3 and 5.
+
+The Median Absolute Deviations (MADs) show a tight spread, indicating consistent performance among participants excluding outliers.
+
+## 3. Findings Table
 
 **Priority formula**: (Impact + Inclusion) - Effort
 
@@ -166,7 +184,7 @@
 
 ------------------------------------------------------------------------
 
-## 3. Pilot Metrics (metrics.csv)
+## 4. Pilot Metrics (metrics.csv)
 
 ``` csv
 ts_iso,session_id,request_id,task_code,step,outcome,ms,http_status,js_mode
@@ -228,14 +246,14 @@ ts_iso,session_id,request_id,task_code,step,outcome,ms,http_status,js_mode
 All participants used a mixture of both standard and non-standard setups.
 
 -   **P1_1985**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard navigation. Used JS and no-JS.
--   **P2_6741**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard-only. Used JS and no-JS.
+-   **P2_6741**: Standard Mouse + HTMX, 'Moderately Confident' with keyboard-only. Used JS and no-JS. 
 -   **P3_1993**: Standard Mouse + HTMX, 'Somewhat Confident' with keyboard navigation. Used JS and no-JS.
 
 **Total participants**: n=3
 
 ------------------------------------------------------------------------
 
-## 4. Implementation Diffs
+## 5. Implementation Diffs
 
 ### Fix 1: Add a task title length requirement
 
@@ -346,7 +364,7 @@ button.btn-delete:focus {
 
 ------------------------------------------------------------------------
 
-## 5. Verification Results
+## 6. Verification Results
 
 ### Part A: Regression Checklist (20 checks)
 
@@ -385,9 +403,9 @@ button.btn-delete:focus {
 **Summary**: 14/20 pass, 6/20 fail
 
 **Critical failures** (if any):
-- Errors identified
-- Focus management
-- Errors visible (no-JS)
+- F2 - Errors identified - Currently, errors are not always announced. This could be fixed by adding the right aria-live value or role to the 'status' div to ensure it always announces errors.
+- Focus management - Since the focus does not accurately swap focus, I could change the focusing logic or add an anchor to that point of the page.
+- Errors visible (no-JS) - As of right now, the noJS version is incapable of displaying errors. This could be fixed by adding a special section in the server-side rendering of the template with a status/error message.
 
 ------------------------------------------------------------------------
 
@@ -395,14 +413,12 @@ button.btn-delete:focus {
 
 **Instructions**: Compare Week 9 baseline (pre-fix) to Week 10 (post-fix). Show improvement.
 
-::: table-wrapper
-Metric                    Before (Week 9, n=X)   After (Week 10, n=Y)   Change             Target Met?
-  ------------------------- ---------------------- ---------------------- ------------------ -------------
-SR error detection        \[e.g., 0/2 (0%)\]     \[e.g., 2/2 (100%)\]   \[e.g., +100%\]    \[✅/❌\]
-Validation error rate     \[e.g., 33%\]          \[e.g., 0%\]           \[e.g., -33%\]     \[✅/❌\]
-Median time \[Task X\]    \[e.g., 1400ms\]       \[e.g., 1150ms\]       \[e.g., -250ms\]   \[✅/❌\]
-WCAG \[criterion\] pass   \[fail\]               \[pass\]               \[--- \]           \[✅/❌\]
-:::
+| Metric                 | Before (Week 9, n=3) | After (Week 10, n=2) | Change         | Target Met? |
+|------------------------|----------------------|----------------------|----------------|-------------|
+| SR error detection     | [e.g., 0/2 (0%)]     | [e.g., 2/2 (100%)]   | [e.g., +100%]  |             |
+| Validation error rate  | [e.g., 33%]          | [e.g., 0%]           | [e.g., -33%]   |             |
+| Median time [Task X]   | [e.g., 1400ms]       | [e.g., 1150ms]       | [e.g., -250ms] |             |
+| WCAG [criterion] pass  | [fail]               | [pass]               | [---]          |             |
 
 **Re-pilot details**:
 
@@ -413,7 +429,7 @@ WCAG \[criterion\] pass   \[fail\]               \[pass\]               \[--- \]
 
 ------------------------------------------------------------------------
 
-## [6. Evidence Folder Contents](#6-evidence-folder-contents){.header} {#6-evidence-folder-contents}
+## [7. Evidence Folder Contents](#6-evidence-folder-contents){.header} {#6-evidence-folder-contents}
 
 **Instructions**: List all files in your evidence/ folder. Provide context.
 
